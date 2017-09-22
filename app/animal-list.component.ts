@@ -6,8 +6,8 @@ import { Animal } from './animal.model';
   template: `
   <select (change)="onFilterAgeChange($event.target.value)">
       <option value="allAnimals" selected="selected">All Animals</option>
-      <option value="youngAnimals">Young Animals</option>
-      <option value="matureAnimals">Mature Animals</option>
+      <option value="young">Young Animals</option>
+      <option value="mature">Mature Animals</option>
  </select>
  <hr>
  <select (change)="onFilterLocationChange($event.target.value)">
@@ -16,7 +16,7 @@ import { Animal } from './animal.model';
      <option value="asia">Asia</option>
 </select>
 <hr>
-    <div *ngFor = "let animal of childAnimalList" >
+  <div *ngFor = "let animal of childAnimalList | ageFilter:filterByAge"  >
         <h3> Species: {{animal.species}} </h3>
         <h4> Name: {{animal.name}}</h4>
         <h5> Age: {{animal.age}}</h5>
@@ -34,9 +34,7 @@ import { Animal } from './animal.model';
 export class AnimalListComponent {
   @Input() childAnimalList: Animal[];
   @Output() clickSender = new EventEmitter();
-  // @Output() pourClickedSender = new EventEmitter();
-  // filterByRemainingPints: string;
-  // filterByPrice: string;
+  filterByAge: string;
 
   // ABVColor(keg){
   //   if (keg.ABV <= 5 ){
@@ -50,16 +48,8 @@ export class AnimalListComponent {
   editAnimalClicked(clickedAnimal: Animal){
     this.clickSender.emit(clickedAnimal);
   }
-  //
-  // pourPint(clickedKeg){
-  //   if (clickedKeg.remainingPints > 0) {
-  //     clickedKeg.remainingPints--
-  //   }
-  // }
-  // onFilterChange(optionFromMenu){
-  //   this.filterByRemainingPints = optionFromMenu;
-  // }
-  // onFilterPriceChange(optionFromMenu){
-  //   this.filterByPrice = optionFromMenu;
-  // }
+  
+  onFilterAgeChange(optionFromMenu){
+    this.filterByAge = optionFromMenu;
+  }
 }
