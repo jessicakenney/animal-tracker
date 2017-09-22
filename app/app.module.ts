@@ -3,13 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent }   from './app.component';
 import { FormsModule } from '@angular/forms';
  import { AnimalListComponent } from './animal-list.component';
-// import { EditAnimalComponent} from './edit-keg.component';
-// import { NewAnimalComponent} from './new-keg.component';
+import { EditAnimalComponent} from './edit-animal.component';
+// import { NewAnimalComponent} from './new-animal.component';
 // import { AgeFilterPipe} from './AgeFilterPipe.pipe';
 
 @NgModule({
-  imports: [ BrowserModule ],
-  declarations: [ AppComponent, AnimalListComponent ],
+  imports: [ BrowserModule, FormsModule],
+  declarations: [ AppComponent, AnimalListComponent, EditAnimalComponent ],
   bootstrap:    [ AppComponent ]
 })
 

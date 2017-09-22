@@ -33,7 +33,7 @@ import { Animal } from './animal.model';
 
 export class AnimalListComponent {
   @Input() childAnimalList: Animal[];
-  // @Output() clickSender = new EventEmitter();
+  @Output() clickSender = new EventEmitter();
   // @Output() pourClickedSender = new EventEmitter();
   // filterByRemainingPints: string;
   // filterByPrice: string;
@@ -47,9 +47,9 @@ export class AnimalListComponent {
   //     return "strong";
   //   }
   // }
-  // editKegClicked(clickedKeg: Keg){
-  //   this.clickSender.emit(clickedKeg);
-  // }
+  editAnimalClicked(clickedAnimal: Animal){
+    this.clickSender.emit(clickedAnimal);
+  }
   //
   // pourPint(clickedKeg){
   //   if (clickedKeg.remainingPints > 0) {
@@ -61,11 +61,5 @@ export class AnimalListComponent {
   // }
   // onFilterPriceChange(optionFromMenu){
   //   this.filterByPrice = optionFromMenu;
-  // }
-  //
-  // pourGrowler(clickedKeg){
-  //   if(clickedKeg.remainingPints > 2) {
-  //     clickedKeg.remainingPints = clickedKeg.remainingPints -2;
-  //   }
   // }
 }
