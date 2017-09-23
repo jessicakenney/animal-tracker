@@ -1,0 +1,58 @@
+<div>
+        <form #form="ngForm" >
+          <div class="form-group">
+             <label>Enter Animal Species:</label>
+             <input #newSpecies type="text" value="species" ngModel required>
+          </div>
+          <div class="form-group">
+            <label>Enter Animal Name:</label>
+            <input #newName type="text" value="species" ngModel required >
+          </div>
+          <div class="form-group">
+            <label>Enter Animal Age:</label>
+            <input #newAge type="number" value="0" ngModel required>
+          </div>
+          <div class="form-group">
+            <label>Enter Animal Diet:</label>
+            <input #newDiet type="text" value="species" ngModel required >
+          </div>
+          <div class="form-group">
+            <label>Enter Animal location:</label>
+            <select #newLocation>
+               <option value="northwest\" selected="selected">NorthWest</option>
+               <option value="elephantHouse"> Elephant House</option>
+               <option value="asia">Asia</option>
+               </select>
+          </div>
+          <div class="form-group">
+            <label>Enter Animal numCare:</label>
+            <input #newNumCare type="number" value="0" ngModel required>
+          </div>
+          <div class="form-group">
+            <label>Enter Animal Sex:</label>
+            <select #newSex>
+               <option value="M" selected="selected">Male</option>
+               <option value="F">Female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Enter Animal Likes:</label>
+            <input #newLikes type="text" value="species" ngModel require>
+          </div>
+          <div class="form-group">
+            <label>Enter Animal Dislikes:</label>
+            <input #newDislikes type="text" value="species" ngModel require>
+          </div>
+          <div class="form-group">
+            <button (click)="submitForm(newSpecies.value, newName.value, newAge.value, newDiet.value, newLocation.value, newNumCare.value, newSex.value, newLikes.value, newDislikes.value); newSpecies.value='species'; newName.value='name'; newAge.value='age'; newDiet.value='diet'; newLocation.value='location'; newNumCare.value='value'; newSex.value='sex'; newLikes.value='likes'; newDislikes.value='dislikes'; ">Admit New Animal</button>
+          </div>
+        </form>
+    </div>
+
+
+
+submitForm (newSpecies: string, newName: string, newAge: number, newDiet: string, newLocation: string, newNumCare: number,newSex: string,newLikes: string, newDislikes: string){
+    var newAnimalToAdd: Animal = new Animal(newSpecies, newName, newAge, newDiet,newLocation,newNumCare,newSex,newLikes,newDislikes);
+    this.newAnimalSender.emit(newAnimalToAdd)
+    this.showNewAnimalForm = false;
+  }
