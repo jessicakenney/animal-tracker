@@ -1,15 +1,12 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Animal } from './animal.model';
 
 @Component({
   selector: 'new-animal',
   template: `
-  <div *ngIf="!showNewAnimalForm">
-    <button (click)="newAnimalButtonClicked()">Register New Animal</button><hr>
-  </div>
   <div *ngIf="showNewAnimalForm" class="newAnimalForm">
     <h2>New Animal Registration</h2> <br>
-      <form #form="ngForm" (ngSubmit)="submitForm(newSpecies.value,newName.value)">
+      <form #form="ngForm" (ngSubmit)="submitForm(newSpecies.value,newName.value,newSex.value,newAge.value,newDiet.value,newLocation.value,newNumCare.value,newLikes.value,newDislikes.value)">
         <div class="form-group row">
           <label class="col-sm-1">Species:</label>
           <div class="col-sm-4" >
@@ -64,7 +61,7 @@ import { Animal } from './animal.model';
         <div class="form-group row">
           <label class="col-sm-1">Number Caretakers:</label>
           <div class="col-sm-4">
-            <input #newAge type="number" class="form-control" name="newNumCare" ngModel required>
+            <input #newNumCare type="number" class="form-control" name="newNumCare" ngModel required>
           </div>
         </div>
 
@@ -92,19 +89,13 @@ import { Animal } from './animal.model';
 })
 
 export class NewAnimalComponent {
+  @Input() showNewAnimalForm : boolean;
   @Output() newAnimalSender = new EventEmitter();
-  showNewAnimalForm : boolean;
 
-  submitForm (newSpecies: string,newName: string){
-    //var newAnimalToAdd: Animal = new Animal(newSpecies, newName, newAge, newDiet,newLocation,newNumCare,newSex,newLikes,newDislikes);
-    var newAnimalToAdd: Animal = new Animal(newSpecies, newName,5,"herbivore","Elephant House",5,"M","red bouncy ball", "other male elephants");
-
+  submitForm (newSpecies: string,newName: string, newAge: number, newDiet: string, newLocation: string, newNumCare: number, newSex: string, newLikes: string, newDislikes: string){
+    console.log("AGE "+newAge);
+    var newAnimalToAdd: Animal = new Animal(newSpecies, newName, newAge, newDiet, newLocation, newNumCare, newSex,newLikes,newDislikes);
     this.newAnimalSender.emit(newAnimalToAdd)
-    this.showNewAnimalForm = false;
-  }
-
-  newAnimalButtonClicked(){
-      this.showNewAnimalForm = true;
   }
 
 }
