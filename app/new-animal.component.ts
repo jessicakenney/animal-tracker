@@ -5,8 +5,9 @@ import { Animal } from './animal.model';
   selector: 'new-animal',
   template: `
   <div *ngIf="showNewAnimalForm" class="newAnimalForm">
+   <div class="well">
     <h2>New Animal Registration</h2> <br>
-      <form #form="ngForm" (ngSubmit)="submitForm(newSpecies.value,newName.value,newSex.value,newAge.value,newDiet.value,newLocation.value,newNumCare.value,newLikes.value,newDislikes.value)">
+      <form #form="ngForm" (ngSubmit)="submitForm(newSpecies.value,newName.value,newAge.value,newDiet.value,newLocation.value,newNumCare.value,newSex.value,newLikes.value,newDislikes.value)">
         <div class="form-group row">
           <label class="col-sm-1">Species:</label>
           <div class="col-sm-4" >
@@ -73,7 +74,7 @@ import { Animal } from './animal.model';
         </div>
 
         <div class="form-group row">
-          <label class="col-sm-1">Diet:</label>
+          <label class="col-sm-1">Dislikes:</label>
           <div class="col-sm-4" >
             <input #newDislikes type="text" class="form-control" name="newDislikes" ngModel required>
           </div>
@@ -84,6 +85,7 @@ import { Animal } from './animal.model';
             <button type="submit" class="btn btn-default" > Register</button>
           </div>
         </form>
+      </div>
     </div>
   `
 })
@@ -92,8 +94,7 @@ export class NewAnimalComponent {
   @Input() showNewAnimalForm : boolean;
   @Output() newAnimalSender = new EventEmitter();
 
-  submitForm (newSpecies: string,newName: string, newAge: number, newDiet: string, newLocation: string, newNumCare: number, newSex: string, newLikes: string, newDislikes: string){
-    console.log("AGE "+newAge);
+  submitForm (newSpecies: string,newName: string, newAge: number, newDiet: string, newLocation: string, newNumCare: string, newSex: string, newLikes: string, newDislikes: string){
     var newAnimalToAdd: Animal = new Animal(newSpecies, newName, newAge, newDiet, newLocation, newNumCare, newSex,newLikes,newDislikes);
     this.newAnimalSender.emit(newAnimalToAdd)
   }

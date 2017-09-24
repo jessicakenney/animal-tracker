@@ -49,6 +49,9 @@ import { Animal } from './animal.model';
       </tr>
       </tbody>
     </table>
+    <div class="total">
+          <h4> Total Number Caretakers: {{total}} </h4>
+    </div>
   </div>
   `
 })
@@ -56,9 +59,9 @@ import { Animal } from './animal.model';
 export class AnimalListComponent {
   @Input() childAnimalList: Animal[];
   @Input() showAllAnimals: boolean;
+  @Input() total: number;
   @Output() clickSender = new EventEmitter();
   filterByAge: string;
-  //showAllAnimals: boolean;
 
   editAnimalClicked(clickedAnimal: Animal){
     this.clickSender.emit(clickedAnimal);
@@ -67,4 +70,5 @@ export class AnimalListComponent {
   onFilterAgeChange(optionFromMenu){
     this.filterByAge = optionFromMenu;
   }
+
 }
