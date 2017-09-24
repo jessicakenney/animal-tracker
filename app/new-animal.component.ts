@@ -82,7 +82,7 @@ import { Animal } from './animal.model';
           <br>
 
           <div class="form-group row" class="col-sm-3">
-            <button type="submit" class="btn btn-default" > Register</button>
+            <button type="button" class="btn btn-primary" type="submit" > Register</button>
           </div>
         </form>
       </div>

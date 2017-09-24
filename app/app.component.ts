@@ -5,16 +5,14 @@ import { Animal } from './animal.model';
   selector: 'app-root',
   template: `
   <div class="container">
-    <h1> Animal Tracker</h1>
-    <h3> {{currentZoo}}</h3>
-    <h4> {{month}}/{{day}}/{{year}}</h4>
+    <h1>Animal Tracker</h1>
+    <h2>[{{currentZoo}}]</h2>
+    <div class="btn-group">
+      <button *ngIf="!masterShowAll" (click)="showAllAnimalsButtonClicked()" type="button" class="btn btn-primary">Show All Animals</button>
+      <button *ngIf="!masterShowNewAnimal" (click)="newAnimalButtonClicked()" type="button" class="btn btn-primary">Register New Animal</button>
+    </div>
     <hr>
-    <div *ngIf="!masterShowAll">
-      <button (click)="showAllAnimalsButtonClicked()">Show All Animals</button><hr>
-    </div>
-    <div *ngIf="!masterShowNewAnimal">
-      <button (click)="newAnimalButtonClicked()">Register New Animal</button><hr>
-    </div>
+
     <new-animal (newAnimalSender)="addAnimal($event)" [showNewAnimalForm]="masterShowNewAnimal"></new-animal>
     <animal-list [childAnimalList] = "masterAnimalList" [showAllAnimals] = "masterShowAll" [total]="masterTotalCare" (clickSender)="editAnimal($event)"> </animal-list>
     <edit-animal [childSelectedAnimal] = "selectedAnimal" (editDoneSender)="doneEdit()"> </edit-animal>
@@ -24,10 +22,6 @@ import { Animal } from './animal.model';
 
 export class AppComponent{
   currentZoo: string = 'Oregon Zoo';
-  currentTime = new Date();
-  month: number = this.currentTime.getMonth() + 1;
-  day: number = this.currentTime.getDate();
-  year: number = this.currentTime.getFullYear();
 
   masterAnimalList: Animal[] = [
     new Animal("elephant", "Sammy",5,"herbivore","Elephant House","5","M","red bouncy ball", "other male elephants"),
@@ -38,7 +32,7 @@ export class AppComponent{
   selectedAnimal = null;
   masterTotalCare : number = 0;
 
- showAllAnimalsButtonClicked(){
+  showAllAnimalsButtonClicked(){
    this.masterShowAll = true;
    this.masterShowNewAnimal = false;
    this.masterTotalCare = this.getTotalCare();

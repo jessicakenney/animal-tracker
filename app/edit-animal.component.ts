@@ -82,7 +82,7 @@ import { Animal } from './animal.model';
         </div>
           <br>
           <div class="form-group row" class="col-sm-3">
-            <button (click)="editDoneButtonClicked()" class="btn btn-default">Done</button>
+            <button type="button" class="btn btn-primary" (click)="editDoneButtonClicked()" >Done</button>
           </div> <br>
       </div>
     </div>
@@ -96,6 +96,5 @@ export class EditAnimalComponent{
   editDoneButtonClicked() {
     this.editDoneSender.emit();
   }
-  //<div *ngIf="showEditAnimalForm" class="AnimalForm">
 
 }

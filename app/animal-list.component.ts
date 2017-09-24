@@ -22,6 +22,7 @@ import { Animal } from './animal.model';
     <table class="table table-striped table-bordered">
       <thead>
       <tr>
+          <th>Date </th>
           <th>Species </th>
           <th> Name </th>
           <th> Sex </th>
@@ -36,6 +37,7 @@ import { Animal } from './animal.model';
       </thead>
       <tbody>
       <tr *ngFor="let animal of childAnimalList | ageFilter:filterByAge">
+          <td>{{animal.entryDate}}</td>
           <td>{{animal.species | uppercase}}</td>
           <td>{{animal.name}}</td>
           <td>{{animal.sex}}</td>
@@ -45,12 +47,12 @@ import { Animal } from './animal.model';
           <td>{{animal.numCare}}</td>
           <td>{{animal.likes}}</td>
           <td>{{animal.dislikes}}</td>
-          <button (click)="editAnimalClicked(animal)">Edit</button>
+          <button type="button" class="btn btn-primary" (click)="editAnimalClicked(animal)">Edit</button>
       </tr>
       </tbody>
     </table>
     <div class="total">
-          <h4> Total Number Caretakers: {{total}} </h4>
+          <h4> Total Number Caretakers: {{total}} </h4><br>
     </div>
   </div>
   `
