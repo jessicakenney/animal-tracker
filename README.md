@@ -34,22 +34,25 @@ git clone https://github.com/jessicakenney/animal-tracker.git
 email with any questions: jessicakenney@yahoo.com,
 
 ## Known Issues/Bugs
-1)
+# 1)
 I was unsuccessful getting Angular 2 \<select> tag to work with 2-way binding [(ngModel)]
 in the select menu for editing animal properties. I resorted to using a \<input>.
 
 Reference: https://github.com/angular/angular/issues/8215 
-\<div class="form-group row">
-         \ <label class="col-sm-1">Sex:</label>
-         \ <div class="col-sm-4">
-         \   <select [(ngModel)]="childSelectedAnimal.sex" class="form-control">
-         \      <option [value]="M">M</option>
-         \      <option [value]="F">F</option>
-         \   </select>
-         \ </div>
-       \ </div>
 
-2)  I was unsuccessful in trying to toggle inside the table \<td>'s between the final version and the
+```html
+	<div class="form-group row">
+          <label class="col-sm-1">Sex:</label>
+          <div class="col-sm-4">
+            <select [(ngModel)]="childSelectedAnimal.sex" class="form-control">
+               <option [value]="M">M</option>
+               <option [value]="F">F</option>
+            </select>
+          </div>
+        </div>
+```
+
+# 2)  I was unsuccessful in trying to toggle inside the table \<td>'s between the final version and the
 "edittable" version of the data. I could not make a single row "edittable" only all the rows.
 I would like to figure this out to so the edits are made right in the table itself.
 
