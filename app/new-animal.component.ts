@@ -52,9 +52,12 @@ import { Animal } from './animal.model';
           <label class="col-sm-1">Location:</label>
           <div class="col-sm-3">
              <select #newLocation>
-               <option value="northwest" selected="selected">NorthWest</option>
-               <option value="elephantHouse"> Elephant House</option>
-               <option value="asia">Asia</option>
+               <option value="Great Northwest" selected="selected">Great NorthWest</option>
+               <option value="Pacific Shores"> Pacific Shores</option>
+               <option value="Discovery Zone"> Discovery Zone</option>
+               <option value="Primate Forest"> Primate Forest</option>
+               <option value="Elephant Lands"> Elephant Lands</option>
+               <option value="Africa"> Africa </option>
              </select>
           </div>
         </div>

@@ -12,7 +12,7 @@ import { Animal } from './animal.model';
         <div class="row">
           <label class="col-sm-1">Species:</label>
           <div class="col-sm-4" >
-            <input [(ngModel)]="childSelectedAnimal.species"type="text" class="form-control" name="newSpecies" >
+            <input [(ngModel)]="childSelectedAnimal.species" type="text" class="form-control" name="newSpecies" >
           </div>
         </div>
 
@@ -27,10 +27,7 @@ import { Animal } from './animal.model';
         <div class="form-group row">
           <label class="col-sm-1">Sex:</label>
           <div class="col-sm-4">
-            <select #newSex>
-               <option value="M" selected="selected">Male</option>
-               <option value="F">Female</option>
-            </select>
+            <input [(ngModel)]="childSelectedAnimal.sex" class="form-control">
           </div>
         </div>
 
@@ -52,11 +49,7 @@ import { Animal } from './animal.model';
         <div class="form-group row">
           <label class="col-sm-1">Location:</label>
           <div class="col-sm-3">
-             <select #newLocation>
-               <option value="northwest" selected="selected">NorthWest</option>
-               <option value="elephantHouse"> Elephant House</option>
-               <option value="asia">Asia</option>
-             </select>
+              <input [(ngModel)]="childSelectedAnimal.location" class="form-control">
           </div>
         </div>
 

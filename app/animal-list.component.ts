@@ -5,21 +5,14 @@ import { Animal } from './animal.model';
   selector: 'animal-list',
   template: `
   <div *ngIf="showAllAnimals" class="newAnimalForm">
-
     <label>Filter By Age:</label>
     <select (change)="onFilterAgeChange($event.target.value)">
          <option value="allAnimals" selected="selected">All Animals</option>
          <option value="young">Young Animals</option>
          <option value="mature">Mature Animals</option>
     </select>
-    <label>Filter By Locations:</label>
-    <select (change)="onFilterLocationChange($event.target.value)">
-        <option value="allLocations" selected="selected">All Locations </option>
-        <option value="elephantHouse"> Elephant House</option>
-        <option value="asia">Asia</option>
-   </select>
    <hr>
-    <table class="table table-striped table-bordered">
+    <table class="table table-bordered table-hover">
       <thead>
       <tr>
           <th>Date </th>
@@ -72,5 +65,4 @@ export class AnimalListComponent {
   onFilterAgeChange(optionFromMenu){
     this.filterByAge = optionFromMenu;
   }
-
 }

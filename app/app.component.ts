@@ -24,12 +24,15 @@ export class AppComponent{
   currentZoo: string = 'Oregon Zoo';
 
   masterAnimalList: Animal[] = [
-    new Animal("elephant", "Sammy",5,"herbivore","Elephant House","5","M","red bouncy ball", "other male elephants"),
-    new Animal("orangatang", "Flower",1,"herbivore","Monkey Pavilion","5","F","rope swinging", "music"),
+    new Animal("arctic fox", "Moon",2,"carnivore","Great Northwest","5","F","cool shade", "loud noises"),
+    new Animal("ocelot", "Prince",4,"carnivore","Discovery Zone","6","M","laying in sunshine", "toys that are not rope-based"),
+    new Animal("Northwest Black Tailed Deer", "Tinkerbell",8,"herbivore","Great Northwest","2","F","delicate roots and leaves", "loud noises"),
+    new Animal("Asian Elephant", "Samudra",9,"herbivore","Elephant Lands","7","M","bath time", "peanuts"),
+    new Animal("De Brazza's Monkey", "Brooke",26,"herbivore","Africa","4","F","rope swinging", "music"),
   ];
   masterShowAll : boolean = false;
   masterShowNewAnimal : boolean = false;
-  selectedAnimal = null;
+  selectedAnimal : Animal = null;
   masterTotalCare : number = 0;
 
   showAllAnimalsButtonClicked(){
